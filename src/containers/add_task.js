@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 
+import TaskList from './task_list';
+
 export default class AddTask extends Component {
   constructor(props){
     super(props);
@@ -16,23 +18,30 @@ export default class AddTask extends Component {
   }
 
   onsubmit(){
-    
+
     console.log(this.state.term);
   }
 
 
   render(){
     return(
-      <div className='input-group'>
-      <input
-      placeholder='Add a task'
-      value={this.state.term}
-      className='form-control'
-      onChange={this.onInputChange}/>
-      <span className='input-group btn'>
-        <button type='submit' className='btn btn-secondary' onClick={this.onsubmit}>Submit</button>
-      </span>
-      </div>
-    )
+      <div className="container">
+      	<div className="row">
+      	    <div className="col-md-4">
+              <br/>
+      		    <form name="checkListForm">
+              <input
+              placeholder='Add a task'
+              value={this.state.term}
+              onChange={this.onInputChange}/>
+      		    </form>
+      	    	 <button className='btn btn-info btn-sm' onClick={this.onsubmit}>Submit</button>
+      		    <br/><br/>
+      		    <div className="list"></div>
+              <TaskList />
+              </div>
+              </div>
+      	</div>
+    );
   }
 }
