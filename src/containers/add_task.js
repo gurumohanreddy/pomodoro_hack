@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import TaskList from './task_list';
+
 
 export default class AddTask extends Component {
   constructor(props){
@@ -9,7 +9,6 @@ export default class AddTask extends Component {
     this.state={term:''};
 
     this.onInputChange = this.onInputChange.bind(this);
-    this.onsubmit = this.onsubmit.bind(this);
 
   }
 
@@ -17,32 +16,24 @@ export default class AddTask extends Component {
     this.setState({term:event.target.value});
   }
 
-  onsubmit(){
-
-    console.log(this.state.term);
+  onFormSubmit(event){
+      event.prevent.Default();
   }
 
 
   render(){
     return(
-      <div className="container">
-      	<div className="row">
-      	    <div className="col-md-6">
-              <br/>
-      		    <form name="checkListForm">
+      		    <form onsubmit={this.onFormSubmit} className='input-group'>
               <input
-              placeholder='Add a task'
+              placeholder='Add a task....'
               className='form-control'
               value={this.state.term}
               onChange={this.onInputChange}/>
+              <span className='input-group-btn'>
+              <button className='btn btn-info' type='button'>Submit</button>
+              </span>
       		    </form>
-      	    	 <button className='btn btn-info' onClick={this.onsubmit}>Submit</button>
-      		    <br/><br/>
-      		    <div className="list"></div>
-              <TaskList />
-              </div>
-              </div>
-      	</div>
+
     );
   }
 }
