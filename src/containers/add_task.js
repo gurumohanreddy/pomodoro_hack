@@ -27,15 +27,16 @@ export default class AddTask extends Component {
     return(
       <div className="container">
       	<div className="row">
-      	    <div className="col-md-4">
+      	    <div className="col-md-6">
               <br/>
       		    <form name="checkListForm">
               <input
               placeholder='Add a task'
+              className='form-control'
               value={this.state.term}
               onChange={this.onInputChange}/>
       		    </form>
-      	    	 <button className='btn btn-info btn-sm' onClick={this.onsubmit}>Submit</button>
+      	    	 <button className='btn btn-info' onClick={this.onsubmit}>Submit</button>
       		    <br/><br/>
       		    <div className="list"></div>
               <TaskList />
