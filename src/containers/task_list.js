@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
+import { SelectList } from '../actions/index';
+import { bindActionCreators} from 'redux';
 
 class TaskList extends Component {
 
@@ -7,6 +9,7 @@ class TaskList extends Component {
     return this.props.lists.map((list)=>{
       return (
         <li
+        onClick={() => this.props.selectList(list)}
         key={list.task}
         className='list-group-item'>{list.task}</li>
       );
@@ -28,4 +31,8 @@ function mapStateToProps(state){
   };
 }
 
-export default connect(mapStateToProps)(TaskList);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({selectList:SelectList},dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TaskList);

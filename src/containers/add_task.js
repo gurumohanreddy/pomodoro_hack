@@ -17,6 +17,7 @@ export default class AddTask extends Component {
   }
 
   onFormSubmit(event){
+    console.log("here");
       event.prevent.Default();
   }
 

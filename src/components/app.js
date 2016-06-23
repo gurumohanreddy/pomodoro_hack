@@ -10,8 +10,8 @@ export default class App extends Component {
         <div className='col-md-12'>
           <AddTask />
           <br />
-          <TaskList />
         </div>
+        <TaskList />
       </div>
     );
   }
